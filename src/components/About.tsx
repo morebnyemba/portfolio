@@ -1,3 +1,4 @@
+import StackedSection from "./StackedSection";
 import TerminalWindow from "./TerminalWindow";
 import TypingTerminal, { type TerminalLine } from "./TypingTerminal";
 
@@ -26,15 +27,10 @@ const lines: TerminalLine[] = [
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-border px-6 py-20">
-      <div className="mx-auto max-w-3xl">
-        <h2 className="text-sm font-medium uppercase tracking-widest text-accent">About</h2>
-        <div className="mt-6">
-          <TerminalWindow title="moreblessing@dev: ~/about">
-            <TypingTerminal lines={lines} />
-          </TerminalWindow>
-        </div>
-      </div>
-    </section>
+    <StackedSection id="about" eyebrow="About" z={10} top="top-20" spacerClassName="h-[65vh]">
+      <TerminalWindow title="moreblessing@dev: ~/about">
+        <TypingTerminal lines={lines} />
+      </TerminalWindow>
+    </StackedSection>
   );
 }

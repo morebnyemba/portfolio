@@ -15,9 +15,11 @@ export default function Home() {
         <Hero />
         <About />
         <Stack />
-        <Projects />
-        <Services />
-        <Contact />
+        <div className="relative z-30 bg-background">
+          <Projects />
+          <Services />
+          <Contact />
+        </div>
       </main>
       <Footer />
     </div>
