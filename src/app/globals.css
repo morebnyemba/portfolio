@@ -123,4 +123,9 @@ body {
   .hero-network .link {
     animation: none;
   }
+
+  .reveal {
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+  }
 }

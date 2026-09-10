@@ -16,14 +16,17 @@ export default function Stack() {
   return (
     <StackedSection
       id="stack"
-      eyebrow="Stack"
       z={20}
       top="top-20"
       pullUpClassName="sm:-mt-[720px]"
+      spacerClassName="hidden sm:block sm:h-[35vh]"
     >
-      <TerminalWindow title="moreblessing@dev: ~/stack">
-        <TypingTerminal lines={lines} />
-      </TerminalWindow>
+      <h2 className="text-sm font-medium uppercase tracking-widest text-accent">Stack</h2>
+      <div className="mt-6">
+        <TerminalWindow title="moreblessing@dev: ~/stack">
+          <TypingTerminal lines={lines} />
+        </TerminalWindow>
+      </div>
     </StackedSection>
   );
 }

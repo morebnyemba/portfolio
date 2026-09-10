@@ -27,10 +27,13 @@ const lines: TerminalLine[] = [
 
 export default function About() {
   return (
-    <StackedSection id="about" eyebrow="About" z={10} top="top-20" spacerClassName="h-[65vh]">
-      <TerminalWindow title="moreblessing@dev: ~/about">
-        <TypingTerminal lines={lines} />
-      </TerminalWindow>
+    <StackedSection id="about" z={10} top="top-20" spacerClassName="h-[65vh]">
+      <h2 className="text-sm font-medium uppercase tracking-widest text-accent">About</h2>
+      <div className="mt-6">
+        <TerminalWindow title="moreblessing@dev: ~/about">
+          <TypingTerminal lines={lines} />
+        </TerminalWindow>
+      </div>
     </StackedSection>
   );
 }

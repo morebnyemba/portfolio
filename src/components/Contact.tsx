@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { contact } from "@/lib/data";
+import Reveal from "./Reveal";
 
 export default function Contact() {
   return (
     <section id="contact" className="border-t border-border px-6 py-20">
-      <div className="mx-auto max-w-3xl text-center">
+      <Reveal className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           Have a project in mind?
         </h2>
@@ -41,7 +42,7 @@ export default function Contact() {
             slykertech.net
           </Link>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
