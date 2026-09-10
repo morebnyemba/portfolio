@@ -1,10 +1,21 @@
 import Link from "next/link";
-import { contact } from "@/lib/data";
+import { contact, products } from "@/lib/data";
+import HeroNetwork from "./HeroNetwork";
+import TerminalWindow from "./TerminalWindow";
+import TypingTerminal, { type TerminalLine } from "./TypingTerminal";
+
+const statusLines: TerminalLine[] = [
+  { type: "cmd", text: "status --live" },
+  { type: "out", text: `✓ ${products.length} production systems shipping right now` },
+  { type: "out", text: "✓ AI integrations: OpenAI · Anthropic Claude · agentic workflows" },
+  { type: "out", text: "✓ Availability: open for new projects, not a role" },
+];
 
 export default function Hero() {
   return (
-    <section id="top" className="glow relative px-6 pb-20 pt-20 sm:pt-28">
-      <div className="mx-auto max-w-3xl text-center">
+    <section id="top" className="glow relative overflow-hidden px-6 pb-20 pt-20 sm:pt-28">
+      <HeroNetwork />
+      <div className="relative mx-auto max-w-3xl text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs text-muted">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -38,6 +49,12 @@ export default function Hero() {
           >
             Email me
           </Link>
+        </div>
+
+        <div className="mx-auto mt-12 max-w-lg text-left">
+          <TerminalWindow title="moreblessing@dev: ~">
+            <TypingTerminal lines={statusLines} />
+          </TerminalWindow>
         </div>
       </div>
     </section>

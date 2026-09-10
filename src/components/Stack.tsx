@@ -1,9 +1,15 @@
 import { stack } from "@/lib/data";
 import TerminalWindow from "./TerminalWindow";
+import TypingTerminal, { type TerminalLine } from "./TypingTerminal";
 
 function slugify(title: string) {
   return title.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-");
 }
+
+const lines: TerminalLine[] = stack.flatMap((group, i) => [
+  { type: "cmd" as const, text: `ls ./${slugify(group.title)}/`, gapBefore: i > 0 },
+  { type: "out" as const, text: group.items.join("   "), indent: true },
+]);
 
 export default function Stack() {
   return (
@@ -12,21 +18,7 @@ export default function Stack() {
         <h2 className="text-sm font-medium uppercase tracking-widest text-accent">Stack</h2>
         <div className="mt-6">
           <TerminalWindow title="moreblessing@dev: ~/stack">
-            {stack.map((group, i) => (
-              <div key={group.title} className={i > 0 ? "mt-5" : undefined}>
-                <p>
-                  <span className="text-accent">$</span> ls ./{slugify(group.title)}/
-                </p>
-                <p className="mt-1 pl-4 text-muted">
-                  {group.items.map((item, idx) => (
-                    <span key={item}>
-                      {item}
-                      {idx < group.items.length - 1 && <span className="text-border"> · </span>}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            ))}
+            <TypingTerminal lines={lines} />
           </TerminalWindow>
         </div>
       </div>
