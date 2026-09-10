@@ -17,7 +17,9 @@ export default function Home() {
         <Stack />
         <Projects />
         <Services />
-        <Contact />
+        <div className="relative z-50 bg-background">
+          <Contact />
+        </div>
       </main>
       <Footer />
     </div>

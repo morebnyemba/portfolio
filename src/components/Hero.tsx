@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useRef, type MouseEvent } from "react";
 import { contact, products } from "@/lib/data";
 import HeroNetwork from "./HeroNetwork";
 import TerminalWindow from "./TerminalWindow";
@@ -12,9 +15,32 @@ const statusLines: TerminalLine[] = [
 ];
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  function handleMouseMove(e: MouseEvent<HTMLElement>) {
+    const el = sectionRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  }
+
   return (
-    <section id="top" className="glow relative overflow-hidden px-6 pb-20 pt-20 sm:pt-28">
+    <section
+      id="top"
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      className="glow relative overflow-hidden px-6 pb-20 pt-20 sm:pt-28"
+    >
       <HeroNetwork />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 hidden opacity-90 sm:block"
+        style={{
+          background:
+            "radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 70%)",
+        }}
+      />
       <div className="relative mx-auto max-w-3xl text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs text-muted">
           <span className="relative flex h-2 w-2">
