@@ -1,8 +1,27 @@
 export const contact = {
   whatsapp: "https://wa.me/263787211325",
+  call: "tel:+263787211325",
+  phoneDisplay: "+263 78 721 1325",
   email: "morebnyemba@gmail.com",
   agency: "https://slykertech.net",
 };
+
+export const services = [
+  {
+    name: "Remote Support",
+    price: "$25",
+    unit: "/ hour",
+    description:
+      "Remote technical assistance — debugging, deployments, integrations, and general dev support.",
+  },
+  {
+    name: "On-Site Support",
+    price: "$60",
+    unit: "/ hour",
+    description:
+      "On-site technical assistance for teams and businesses that need someone in the room.",
+  },
+];
 
 export const stack = [
   {

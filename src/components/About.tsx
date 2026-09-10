@@ -10,6 +10,12 @@ const lines: TerminalLine[] = [
     text: "I build production systems end to end — backend architecture, API design, database performance, and the frontends that sit on top of them. My work spans multi-tenant SaaS, WhatsApp-based automation at scale, and client platforms across FinTech, travel, and logistics, with deep, hands-on expertise wiring AI and LLM tooling into real products, not just prototypes.",
     dim: true,
   },
+  { type: "cmd", text: "cat credentials.txt", gapBefore: true },
+  {
+    type: "out",
+    text: "Founder, Slyker Tech Web Services — operating multiple production sites for clients across FinTech, travel, and logistics.",
+    dim: true,
+  },
   { type: "cmd", text: "cat availability.txt", gapBefore: true },
   {
     type: "out",

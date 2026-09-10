@@ -44,6 +44,12 @@ export default function Hero() {
             Let&apos;s talk on WhatsApp
           </Link>
           <Link
+            href={contact.call}
+            className="rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-surface"
+          >
+            Call {contact.phoneDisplay}
+          </Link>
+          <Link
             href={`mailto:${contact.email}`}
             className="rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-surface"
           >
