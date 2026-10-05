@@ -47,6 +47,15 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setMobileOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
@@ -67,6 +76,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={active ? "true" : undefined}
                 className={`relative py-1 transition-colors ${
                   active ? "text-foreground" : "text-muted hover:text-foreground"
                 }`}

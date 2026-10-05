@@ -5,14 +5,7 @@ import StackedSection from "./StackedSection";
 
 export default function Projects() {
   return (
-    <StackedSection
-      id="work"
-      z={30}
-      top="top-20"
-      maxWidthClassName="max-w-5xl"
-      pullUpClassName="sm:-mt-[600px]"
-      spacerClassName="hidden sm:block sm:h-[35vh]"
-    >
+    <StackedSection id="work" z={30} maxWidthClassName="max-w-5xl">
       <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
         Products &amp; Platforms
       </h2>
