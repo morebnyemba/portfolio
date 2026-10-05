@@ -9,9 +9,7 @@ export default function Services() {
     <StackedSection
       id="support"
       z={40}
-      top="top-20"
       maxWidthClassName="max-w-5xl"
-      pullUpClassName="sm:-mt-[700px]"
     >
       <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
         Technical Support

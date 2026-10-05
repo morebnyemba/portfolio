@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { siteDescription, siteName, siteTitle, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,27 +13,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://morebnyemba.slykertech.net";
-const title = "Moreblessing Nyemba — Full-Stack Engineer & AI Integrations";
-const description =
-  "Full-stack engineer building production systems across FinTech, WhatsApp automation, and AI/LLM integrations. Not looking for a role — open for project work.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title,
-  description,
+  title: siteTitle,
+  description: siteDescription,
+  alternates: { canonical: "/" },
   openGraph: {
-    title,
-    description,
+    title: siteTitle,
+    description: siteDescription,
     url: siteUrl,
-    siteName: "Moreblessing Nyemba",
+    siteName,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title,
-    description,
+    title: siteTitle,
+    description: siteDescription,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#05060a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -41,7 +43,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <noscript>
+          <style>{`.typing-line,.typing-line *{visibility:visible!important}.typing-line .cursor-blink{display:none}.reveal{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { useRef, type MouseEvent } from "react";
-import { contact, products } from "@/lib/data";
+import { contact } from "@/lib/data";
+import { liveSystemCount } from "@/lib/seo";
 import HeroNetwork from "./HeroNetwork";
 import TerminalWindow from "./TerminalWindow";
 import TypingTerminal, { type TerminalLine } from "./TypingTerminal";
 
 const statusLines: TerminalLine[] = [
   { type: "cmd", text: "status --live" },
-  { type: "out", text: `✓ ${products.length} production systems shipping right now` },
+  { type: "out", text: `✓ ${liveSystemCount} production systems live right now` },
   { type: "out", text: "✓ AI integrations: OpenAI · Anthropic Claude · agentic workflows" },
   { type: "out", text: "✓ Availability: open for new projects, not a role" },
 ];

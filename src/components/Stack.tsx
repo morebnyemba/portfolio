@@ -14,13 +14,7 @@ const lines: TerminalLine[] = stack.flatMap((group, i) => [
 
 export default function Stack() {
   return (
-    <StackedSection
-      id="stack"
-      z={20}
-      top="top-20"
-      pullUpClassName="sm:-mt-[720px]"
-      spacerClassName="hidden sm:block sm:h-[35vh]"
-    >
+    <StackedSection id="stack" z={20}>
       <h2 className="text-sm font-medium uppercase tracking-widest text-accent">Stack</h2>
       <div className="mt-6">
         <TerminalWindow title="moreblessing@dev: ~/stack">
